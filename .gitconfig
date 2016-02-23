@@ -1,0 +1,23 @@
+[user]
+    name = Ivan Prignano
+    email = ivanprignano@gmail.com
+
+[alias]
+    co = checkout
+    st = status
+    ci = commit
+    ca = commit -a
+    cam = commit -am
+    nb = checkout -b
+    last = log -5 HEAD
+    undo = reset HEAD
+    dump = reset HEAD --hard
+    prum = pull --rebase upstream master
+    pum = pull upstream master
+    m = checkout master
+    aliases = config --get-regexp alias
+
+[push]
+    default = current
+[core]
+    editor = vim
