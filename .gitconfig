@@ -16,8 +16,10 @@
     pum = pull upstream master
     m = checkout master
     aliases = config --get-regexp alias
+    recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
 [push]
     default = current
+
 [core]
     editor = vim
