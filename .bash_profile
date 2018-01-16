@@ -1,6 +1,3 @@
-# git completio
-source ~/git-completion.bash
-
 # ls alias for color-mode
 alias ls='ls -lhaG'
 
