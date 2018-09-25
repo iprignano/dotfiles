@@ -18,6 +18,10 @@
     aliases = config --get-regexp alias
     recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
 
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
+
 [push]
     default = current
 
