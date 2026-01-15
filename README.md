@@ -1,6 +1,10 @@
 # Dotfiles et al.
 
-## 1. Homebrew:
+This is a list of steps that the [`setup.sh`](./setup.sh) script will run when executed. 
+
+Ideally a valid SSH key and the macos SSH agent should be already set up (but are not required).
+
+## 1. Homebrew
 
 Install [Homebrew](https://github.com/Homebrew/brew):
 
@@ -8,7 +12,7 @@ Install [Homebrew](https://github.com/Homebrew/brew):
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-## 2. Git:
+## 2. Git
 
 Install [git](https://github.com/git/git):
 
@@ -22,7 +26,7 @@ Add [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy):
 brew install diff-so-fancy
 ```
 
-## 3. Ghostty:
+## 3. Ghostty
 
 Install [Ghostty](https://github.com/ghostty-org/ghostty) via Homebrew:
 
@@ -88,7 +92,35 @@ Install [bat](https://github.com/sharkdp/bat):
 brew install bat
 ```
 
-## 8. Aliases
+## 8. Gitconfig and aliases
+
+Update or create the `~/.gitconfig` file with these settings:
+
+```
+[user]
+    name = Ivan Prignano
+    email = ivanprignano@gmail.com
+
+[alias]
+    co = checkout
+    nb = checkout -b
+    last = log -5 HEAD
+    prum = pull --rebase upstream master
+    pum = pull upstream master
+    aliases = config --get-regexp alias
+    recent = for-each-ref --count=10 --sort=-committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
+
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
+
+[push]
+    default = current
+
+[core]
+    editor = vim
+```
+
 
 Add to `~/.zshrc`:
 
@@ -110,4 +142,38 @@ alias gco='git checkout'
 
 # git cool log alias
 alias gl="git log --format='%Cgreen%h%Creset %C(cyan)%an%Creset - %s' --graph"
+```
+
+## 9. NVM
+
+Install [NVM](https://github.com/nvm-sh/nvm):
+
+```sh
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+```
+
+## 9. Alfred + Rectangle
+
+Install [Alfred](https://www.alfredapp.com) and [Rectangleapp](https://rectangleapp.com):
+
+```sh
+brew install --cask alfred
+brew install --cask rectangle
+```
+
+## 10. 1Password
+
+Install [1Password](https://1password.com):
+
+```sh
+brew install --cask 1password
+```
+
+## 11. Whatsapp & Signal
+
+Install Whatsapp and Signal:
+
+```sh
+brew install --cask whatsapp
+brew install --cask signal
 ```
