@@ -4,6 +4,10 @@ This is a list of steps that the [`setup.sh`](./setup.sh) script will run when e
 
 Ideally a valid SSH key and the macos SSH agent should be already set up (but are not required).
 
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/iprignano/dotfiles/refs/heads/master/setup.sh)"
+```
+
 ## 1. Homebrew
 
 Install [Homebrew](https://github.com/Homebrew/brew):
