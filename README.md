@@ -1,6 +1,6 @@
 # Dotfiles et al.
 
-This is a list of steps that the [`setup.sh`](./setup.sh) script will run when executed. 
+This is a list of steps that the [`setup.sh`](./setup.sh) script will run when executed.
 
 Ideally a valid SSH key and the macos SSH agent should be already set up (but are not required).
 
@@ -38,10 +38,12 @@ Install [Ghostty](https://github.com/ghostty-org/ghostty) via Homebrew:
 brew install --cask ghostty
 ```
 
-Add a theme to its config file:
+Add these lines to the config
 
 ```
-theme = chalk
+theme = iTerm2 Default
+split-divider-color = #292929
+unfocused-split-opacity = 0.5
 ```
 
 ## 4. Oh my ZSH
@@ -66,7 +68,7 @@ Add to `~/.zshrc`:
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
 ```
 
-Restart Ghostty and run through the P10K setup wizard. 
+Restart Ghostty and run through the P10K setup wizard.
 
 ## 6. ZSH syntax highlighting and autosuggest
 
@@ -124,7 +126,6 @@ Update or create the `~/.gitconfig` file with these settings:
 [core]
     editor = vim
 ```
-
 
 Add to `~/.zshrc`:
 

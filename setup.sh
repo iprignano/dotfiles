@@ -8,6 +8,7 @@ echo "🚀 Starting Mac setup..."
 echo "📦 Installing Homebrew..."
 if ! command -v brew &> /dev/null; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
 else
     echo "Homebrew already installed"
 fi
@@ -23,9 +24,16 @@ brew install --cask ghostty
 
 # Add Ghostty theme
 echo "🎨 Adding Ghostty theme..."
-GHOSTTY_CONFIG_DIR="$HOME/Library/Application\ Support/com.mitchellh.ghostty/config"
-if ! grep -q "theme = chalk" "$GHOSTTY_CONFIG_DIR/config" 2>/dev/null; then
-    echo "theme = chalk" >> "$GHOSTTY_CONFIG_DIR/config"
+GHOSTTY_CONFIG_DIR="$HOME/Library/Application Support/com.mitchellh.ghostty"
+mkdir -p "$GHOSTTY_CONFIG_DIR"
+if ! grep -q "theme = iTerm2 Default" "$GHOSTTY_CONFIG_DIR/config" 2>/dev/null; then
+    echo "theme = iTerm2 Default" >> "$GHOSTTY_CONFIG_DIR/config"
+fi
+if ! grep -q "split-divider-color" "$GHOSTTY_CONFIG_DIR/config" 2>/dev/null; then
+    echo "split-divider-color = #292929" >> "$GHOSTTY_CONFIG_DIR/config"
+fi
+if ! grep -q "unfocused-split-opacity" "$GHOSTTY_CONFIG_DIR/config" 2>/dev/null; then
+    echo "unfocused-split-opacity = 0.5" >> "$GHOSTTY_CONFIG_DIR/config"
 fi
 
 # 4. Oh My ZSH
@@ -122,16 +130,16 @@ fi
 echo "📦 Installing NVM..."
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
 
-# 9. Alfred + Rectangle
+# 10. Alfred + Rectangle
 echo "🔧 Installing Alfred and Rectangle..."
 brew install --cask alfred
 brew install --cask rectangle
 
-# 10. 1Password
+# 11. 1Password
 echo "🔐 Installing 1Password..."
 brew install --cask 1password
 
-# 11. WhatsApp & Signal
+# 12. WhatsApp & Signal
 echo "💬 Installing WhatsApp and Signal..."
 brew install --cask whatsapp
 brew install --cask signal
